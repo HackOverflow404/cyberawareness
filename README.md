@@ -15,19 +15,19 @@ Overview of cyber awareness and statistics on cybercrime. [Home Page](/home)
 
 ## Passwords Section
 
-- [How do Passwords Work](/passwords/how-do-they-work)
-- [How are Passwords Cracked](/passwords/how-are-they-cracked)
-- [How can Passwords be Protected](/passwords/how-to-protect)
+- [How do Passwords Work](/passwords/passwdWork.html)
+- [How are Passwords Cracked](/passwords/passwdCrack.html)
+- [How can Passwords be Protected](/passwords/passwdProtect.html)
 
 ## Malware Section
 
-- [What is Malware?](/malware/what-is-malware)
-- [How can We Protect Against Malware?](/malware/how-to-protect)
+- [What is Malware?](/malware/malwareWhat.html)
+- [How can We Protect Against Malware?](/malware/malwareProtect.html)
 
 ## Phishing Section
 
-- [What are Phishing Attacks?](/phishing/what-are-phishing-attacks)
-- [How can We Protect Against Phishing Attacks?](/phishing/how-to-protect)
+- [What are Phishing Attacks?](/phishing/phishingWhat.html)
+- [How can We Protect Against Phishing Attacks?](/phishing/phishingProtect.html)
 
 ## Interactive Activities
 
