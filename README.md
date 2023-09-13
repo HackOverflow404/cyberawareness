@@ -33,4 +33,4 @@ Overview of cyber awareness and statistics on cybercrime. [Home Page](/home/inde
 
 Throughout the website, you'll find interactive activities and quizzes to reinforce your knowledge of cyber awareness.
 
-For inquiries or feedback, please [contact us](mailto:contact@cyberawarenesswebsite.com).
+For inquiries or feedback, please [contact us](mailto:medhansh2005@gmail.com).
