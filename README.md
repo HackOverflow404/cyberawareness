@@ -11,7 +11,7 @@ Welcome to the Cyber Awareness website! Our mission is to promote and educate in
 
 ## Home Page
 
-Overview of cyber awareness and statistics on cybercrime. [Home Page](/home)
+Overview of cyber awareness and statistics on cybercrime. [Home Page](/home/index.html)
 
 ## Passwords Section
 
