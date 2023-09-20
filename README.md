@@ -1,6 +1,6 @@
 # Cyber Awareness Website
 
-Welcome to the Cyber Awareness website! My mission is to promote and educate individuals on the importance of cyber awareness and provide valuable insights into protecting yourself online.
+Welcome to the Cyber Awareness website! My mission is to promote and educate individuals on the importance of cyber awareness and provide valuable insights into protecting themselves online.
 
 ## Sections
 
