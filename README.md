@@ -11,7 +11,7 @@ Welcome to the Cyber Awareness website! My mission is to promote and educate ind
 
 ## Home Page
 
-- [Home Page](/home/index.html)
+- [Home Page](/index.html)
 
 ## Passwords Section
 
