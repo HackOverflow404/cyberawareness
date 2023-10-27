@@ -341,20 +341,6 @@ td {
     height: 18vw;
 }
 
-#passwd-guess {
-    width: 20vw;
-    height: 2vw;
-    border-radius: 2vw;
-    padding-left: 1vw;
-    padding-right: 1vw;
-    
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 0.75vw;
-    color: #000;
-}
-
 select {
     width: 8vw;
     height: 2vw;
