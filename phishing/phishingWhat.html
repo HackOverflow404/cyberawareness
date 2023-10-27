@@ -135,7 +135,7 @@
                 questionContainer.text(questions[questionNum]);
                 $("#quiz-options").html("");
                 for (let j = 0; j < answerOptions[questionNum].length; j++) {
-                    $("#quiz-options").append("<input type=\"radio\" name=\"" + questionNum + "\" id=\"q" + questionNum + "a" + j + "\" value=\"" + j + "\"><label>" + answerOptions[questionNum][j] + "</label><br>");
+                    $("#quiz-options").append("<input type=\"radio\" name=\"" + questionNum + "\" id=\"q" + questionNum + "a" + j + "\" value=\"" + j + "\"><label class=\"content-para\">" + answerOptions[questionNum][j] + "</label><br>");
                 }
             }
 
