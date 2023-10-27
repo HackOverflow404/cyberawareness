@@ -368,7 +368,7 @@ select {
     color: #FFFFFF;
 }
 
-#malware-guess {
+input[type=text] {
     width: 28vw;
     height: 2vw;
     border-radius: 2vw;
