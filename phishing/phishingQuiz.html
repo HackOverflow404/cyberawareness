@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h2 class="content-title">Phishing Quiz</h2>
+    <p id="quiz-question" class="content-para"></p>
+    <div id="quiz-options"></div>
+    <button id="checkAns">Check</button>
+
+    <script>
+        // Quiz
+        let questions = ["What is phishing?", "Which of the following is NOT a common type of phishing?", "What is the purpose of two-factor authentication (2FA) in the context of phishing prevention?"];
+        let answerOptions = [["A cyber attack where deceptive methods are used to trick individuals into revealing sensitive information.", "A technique to catch more fish.", "A type of cyber attack involving fishing for information underwater."], ["Email phishing", "Spear phishing", "Slither phishing"], ["It helps attackers gain access to your accounts.", "It adds an extra layer of security by requiring multiple forms of verification.", "It allows you to share your passwords with others."]];
+        let userAnswer = [];
+
+        let questionContainer = $("#quiz-question");
+        let questionNum = 0;
+
+        changeQuestion();
+    
+        function changeQuestion() {
+            if (questionNum >= questions.length) {
+                checkAnswers();
+                return 0;
+            }
+            questionContainer.text(questions[questionNum]);
+            $("#quiz-options").html("");
+            for (let j = 0; j < answerOptions[questionNum].length; j++) {
+                $("#quiz-options").append("<input type=\"radio\" name=\"" + questionNum + "\" id=\"q" + questionNum + "a" + j + "\" value=\"" + j + "\"><label>" + answerOptions[questionNum][j] + "</label><br>");
+            }
+        }
+
+        function checkAnswers() {
+            console.log("Chosen answers: " + userAnswer);
+            let incorrectAns = "";
+            if (userAnswer[0] != "0") {
+                incorrectAns += "1";
+            }
+            if (userAnswer[1] != "2") {
+                incorrectAns += "2";
+            }
+            if (userAnswer[2] != "1") {
+                incorrectAns += "3";
+            }
+            if (incorrectAns == "") {
+                console.log("You got all answers correct!");
+            } else {
+                if (incorrectAns.length == 1) {
+                    console.log("Question " + incorrectAns + " was wrong");
+                } else {
+                    console.log("Questions " + [...incorrectAns].join(", ") + " were wrong")
+                }
+            }
+        }
+
+        $("#checkAns").click(() => {
+            userAnswer.push($("input[name=" + questionNum + "]:checked").attr("value"));
+            questionNum++;
+            changeQuestion();
+        });
+    </script>
+</body>
+</html>
