@@ -163,8 +163,13 @@ td {
     color: #FFFFFF;
 }
 
-#text-input {
+#hash-input {
     color: #000000;
+}
+
+#hash-output {
+    color: #FFFFFF;
+    height: 3vw;
 }
 
 .hash-demo-box {
