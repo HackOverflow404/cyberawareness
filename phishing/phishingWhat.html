@@ -58,13 +58,41 @@
                     <h2 class="content-title">Example of Phishing</h2>
                     <p class="content-para">Here is an example of a phishing attack:</p>
                     <br>
-                    <p class="content-para"><b>Urgent Account Verification Required</b></p>
-                    <p class="content-para">Dear Customer,</p>
-                    <p class="content-para">We regret to inform you that your account security has been compromised. To protect your funds and sensitive information, we kindly request you to verify your account by clicking the link below:</p>
-                    <p class="content-para"><a href="">Click Here to Verify Your Account</a></p>
-                    <p class="content-para">Failure to verify your account within the next 48 hours will result in the suspension of your account and a freeze on all transactions. We take your security seriously and apologize for any inconvenience this may cause.</p>
-                    <p class="content-para">Thank you for your immediate attention to this matter.</p>
-                    <p class="content-para">Sincerely, Your Bank Support Team</p>
+                    <div class="phishing-example">
+                        <p id="example-subject" class="content-para"><b>Urgent Account Verification Required</b></p>
+                        <p id="example-greeting" class="content-para email-para">Dear Customer,</p>
+                        <p id="example-para-1" class="content-para email-para">We regret to inform you that your account security has been compromised. To protect your funds and sensitive information, we kindly request you to verify your account by clicking the link below:</p>
+                        <p id="example-link" class="content-para email-para"><a href="">Click Here to Verify Your Account</a></p>
+                        <p id="example-para-2" class="content-para email-para">Failure to verify your account within the next 48 hours will result in the suspension of your account and a freeze on all transactions. We take your security seriously and apologize for any inconvenience this may cause.</p>
+                        <p id="example-para-3" class="content-para email-para">Thank you for your immediate attention to this matter.</p>
+                        <p id="example-signature" class="content-para email-para">Sincerely, Your Bank Support Team</p>
+                    </div>
+                    <style>
+                        #example-subject {
+                            color: #333;
+                            text-align: center;
+                            padding: 20px;
+                        }
+                        #email-para {
+                            color: #555;
+                            margin: 0 20px;
+                        }
+                        #example-link {
+                            color: #007BFF;
+                            text-decoration: none;
+                        }
+                        #example-link:hover {
+                            text-decoration: underline;
+                        }
+                        .phishing-example {
+                            background-color: #fff;
+                            max-width: 600px;
+                            margin: 20px auto;
+                            padding: 20px;
+                            border: 1px solid #ddd;
+                            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                        }
+                    </style>
                 </td>
             </tr>
         </table>
