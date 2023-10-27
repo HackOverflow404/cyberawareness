@@ -16,14 +16,14 @@ class NavBar extends React.Component {
                     <button className="malware-dropbtn dropbtn">Malware</button>
                     <div className="malware-content dropdown-content">
                         <a href="/cyberawareness/malware/malwareWhat.html">What is Malware?</a>
-                        <a href="/cyberawareness/malware/malwareProtect.html">How can We Protect Against Malware</a>
+                        <a href="/cyberawareness/malware/malwareProtect.html">How can we Protect Against Malware?</a>
                     </div>
                 </div>
                 <div className="phishing-dropdown dropdown">
                     <button className="phishing-dropbtn dropbtn">Phishing</button>
                     <div className="phishing-content dropdown-content">
                         <a href="/cyberawareness/phishing/phishingWhat.html">What are Phishing Attacks?</a>
-                        <a href="/cyberawareness/phishing/phishingProtect.html">How can We Protect Against Phishing Attacks</a>
+                        <a href="/cyberawareness/phishing/phishingProtect.html">How can we Protect Against Phishing Attacks?</a>
                     </div>
                 </div>
             </div>
