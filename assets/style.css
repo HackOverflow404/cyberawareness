@@ -105,7 +105,7 @@ body {
     margin-right: 0vw;
 }
 
-p, li {
+p, li, label {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
