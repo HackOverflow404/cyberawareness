@@ -151,7 +151,10 @@ td {
 
 .hash-demo {
     width: 30vw;
-    height: 2vw;
+    height: 5vw;
+
+    overflow-wrap: break-word;
+
     border-radius: 2vw;
     padding-left: 1vw;
     padding-right: 1vw;
@@ -160,7 +163,7 @@ td {
     font-style: normal;
     font-weight: 400;
     font-size: 0.75vw;
-    color: #FFFFFF;
+    color: #000000;
 }
 
 #hash-input {
