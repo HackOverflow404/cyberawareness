@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>CyberSpace</title>
+    <script src="../assets/NavBar.js" type="text/jsx"></script>
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+
+<body>
+    <div id="navbar-div"></div>
+
+    <div class="title">
+        <img id="title-img" src="PhishingTitleBackground.png" alt="Phishing">
+        <span class="title-text">
+            <h1 id="title">How can we Protect Against Phishing Attacks?</h1>
+        </span>
+    </div>
+
+    <div class="content">
+        <table class="left-content-container content-container">
+            <tr class="left-content-1 left-tile content-tile">
+                <td>
+                    <h2 class="content-title">Recognizing Phishing Attempts</h2>
+                    <p class="content-para">Email Phishing<br>Be cautious of unexpected emails, especially those urging immediate action. Check for spelling errors, generic greetings, and suspicious email addresses. Verify the legitimacy of unexpected attachments or links by contacting the sender directly.<br><br>Website Phishing<br>Before entering personal information on a website, ensure it is secure. Look for "https://" in the URL and a padlock icon in the address bar. Avoid clicking on links in emails; instead, manually type the website's address.<br><br>Phone and SMS Phishing<br>Exercise caution with unsolicited calls or text messages, especially those requesting sensitive information. Legitimate organizations won't ask for sensitive details over the phone. Verify the authenticity of the request independently.</p>
+                </td>
+            </tr>
+            <tr class="left-content-2 left-tile content-tile">
+                <td>
+                    <h2 class="content-title">Keep Software and Systems Updated</h2>
+                    <p class="content-para">Regularly update your operating system, antivirus software, and all applications. Security patches and updates are often released to address vulnerabilities that could be exploited by phishing attacks.</p>
+                </td>
+            </tr>
+            <tr class="left-content-3 left-tile content-tile">
+                <td>
+                    <h2 class="content-title">Report Suspected Phishing Attempts</h2>
+                    <p class="content-para">If you encounter a potential phishing attempt, report it to your organization's IT
+                        department or the legitimate entity being impersonated. Reporting can help prevent others from falling
+                        victim to the same scam.</p>
+                </td>
+            </tr>
+        </table>
+        <table class="right-content-container content-container">
+            <tr class="right-content-1 right-tile content-tile">
+                <td>
+                    <h2 class="content-title">Secure Password Practices</h2>
+                    <p class="content-para">Strong, Unique Passwords<br>Create strong, unique passwords for each online account. Use a combination of uppercase and lowercase letters, numbers, and symbols. Avoid easily guessable information such as birthdays or names.<br><br>Two-Factor Authentication (2FA)<br>Enable 2FA whenever possible. This adds an extra layer of security by requiring a secondary verification method, such as a code sent to your mobile device, in addition to your password.<br><br>See <a href="../passwords/passwdProtect.html">How can Passwords be Protected?</a> page for more information</p>
+                </td>
+            </tr>
+            <tr class="right-content-2 right-tile content-tile">
+                <td>
+                    <h2 class="content-title">Educate Yourself and Stay Informed</h2>
+                    <p class="content-para">Security Awareness Training<br>Participate in security awareness training programs to learn about the latest phishing techniques and how to recognize them. Many organizations provide online resources to educate users on cybersecurity best practices.<br><br>Stay Informed About Current Threats<br>Stay abreast of current phishing threats by following reputable cybersecurity blogs, news sources, and official communications from your workplace or relevant organizations.</p>
+                </td>
+            </tr>
+            <tr class="right-content-3 right-tile content-tile">
+                <td>
+                    <h2 class="content-title">Use Email Filtering</h2>
+                    <p class="content-para">Leverage email filtering tools to automatically detect and filter out potential phishing
+                        emails. These tools can help reduce the likelihood of malicious emails reaching your inbox.</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script type="text/babel">
+        ReactDOM.render(<NavBar />, document.getElementById("navbar-div"));
+    </script>
+
+    <script>
+        let titleHeight = ($("#title-img").innerHeight() / 2) - ($(".title-text").innerHeight() / 2);
+        $(".title-text").css("top", (titleHeight + "px"));
+
+        let contentHeight = ($("#title-img").outerHeight() + "px");
+        $(".content").css("top", contentHeight);
+
+        let contentTileMargin = ($("html").innerWidth() - ($(".content-tile").outerWidth() * 2)) / 3;
+        $(".content-tile").css("margin-top", (contentTileMargin + "px"));
+        $(".left-content-container").css("padding-left", (contentTileMargin + "px"));
+        $(".right-content-container").css("padding-right", (contentTileMargin + "px"));
+        $(".content-container").css("padding-bottom", (contentTileMargin + "px"));
+
+        $(window).resize(function () {
+            let titleHeight = ($("#title-img").innerHeight() / 2) - ($(".title-text").innerHeight() / 2);
+            $(".title-text").css("top", (titleHeight + "px"));
+
+            let contentHeight = ($("#title-img").outerHeight() + "px");
+            $(".content").css("top", contentHeight);
+
+            let contentTileMargin = ($("html").innerWidth() - ($(".content-tile").outerWidth() * 2)) / 3;
+            $(".content-tile").css("margin-top", (contentTileMargin + "px"));
+            $(".left-content-container").css("padding-left", (contentTileMargin + "px"));
+            $(".right-content-container").css("padding-right", (contentTileMargin + "px"));
+            $(".content-container").css("padding-bottom", (contentTileMargin + "px"));
+        });
+    </script>
+</body>
+
+</html>

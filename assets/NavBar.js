@@ -2,7 +2,7 @@ class NavBar extends React.Component {
     render() {
         return (
             <div className="navbar">
-                <link rel="stylesheet" href="../assets/NavBar.css" />
+                <link rel="stylesheet" href="/cyberawareness/assets/NavBar.css" />
                 <div className="home-dropdown dropdown"><a id="home-link" href="../index.html"><button className="home-dropbtn dropbtn">Home</button></a></div>
                 <div className="passwd-dropdown dropdown">
                     <button className="passwd-dropbtn dropbtn">Passwords</button>

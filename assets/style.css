@@ -453,3 +453,8 @@ input[type=text] {
 .ans-label:hover {
     background-color: #A6A6A6;
 }
+
+a, a:visited {
+    color: #A6A6A6;
+    text-decoration: underline;
+}
