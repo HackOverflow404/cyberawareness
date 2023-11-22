@@ -96,7 +96,74 @@
     </script>
     
     <script>
-        $(function () {
+        let titleHeight = ($("#title-img").innerHeight() / 2)-($(".title-text").innerHeight() / 2);
+        $(".title-text").css("top", (titleHeight + "px"));
+
+        let contentHeight = ($("#title-img").outerHeight() + "px");
+        $(".content").css("top", contentHeight);
+
+        let contentTileMargin = ($("html").innerWidth() - ($(".content-tile").outerWidth() * 2))/ 3;
+        $(".content-tile").css("margin-top", (contentTileMargin + "px"));
+        $(".left-content-container").css("padding-left", (contentTileMargin + "px"));
+        $(".right-content-container").css("padding-right", (contentTileMargin + "px"));
+        $(".content-container").css("padding-bottom", (contentTileMargin + "px"));
+
+        // Hash Demo
+        $("#hash-input").keyup(hash);
+        $("#crypto-alg").change(hash);
+
+        function hash() {
+            input = $("#hash-input").val();
+            console.log("There is input: " + input);
+            if (input != "") {
+                let cryptoAlg = $("#crypto-alg").val();
+                if (cryptoAlg == "SHA-256") {
+                    sha256(input).then((cipherText) => {
+                        $("#hash-output").val(cipherText);
+                        console.log(cipherText);
+                    });
+                } else if (cryptoAlg == "SHA-512") {
+                    sha512(input).then((cipherText) => {
+                        $("#hash-output").val(cipherText);
+                        console.log(cipherText);
+                    });
+                } else if (cryptoAlg == "SHA-1") {
+                    sha1(input).then((cipherText) => {
+                        $("#hash-output").val(cipherText);
+                        console.log(cipherText);
+                    });
+                }
+            } else {
+                $("#hash-output").val("");
+            }
+        }
+
+        function sha256(string) {
+            const utf8 = new TextEncoder().encode(string);
+            return crypto.subtle.digest('SHA-256', utf8).then((hashBuffer) => {
+                const hashArray = Array.from(new Uint8Array(hashBuffer));
+                const hashHex = hashArray.map((bytes) => bytes.toString(16).padStart(2, '0')).join('');
+                return hashHex;
+            });
+        }
+        function sha512(string) {
+            const utf8 = new TextEncoder().encode(string);
+            return crypto.subtle.digest('SHA-512', utf8).then((hashBuffer) => {
+                const hashArray = Array.from(new Uint8Array(hashBuffer));
+                const hashHex = hashArray.map((bytes) => bytes.toString(16).padStart(2, '0')).join('');
+                return hashHex;
+            });
+        }
+        function sha1(string) {
+            const utf8 = new TextEncoder().encode(string);
+            return crypto.subtle.digest('SHA-1', utf8).then((hashBuffer) => {
+                const hashArray = Array.from(new Uint8Array(hashBuffer));
+                const hashHex = hashArray.map((bytes) => bytes.toString(16).padStart(2, '0')).join('');
+                return hashHex;
+            });
+        }
+
+        $(window).resize(function() {
             let titleHeight = ($("#title-img").innerHeight() / 2)-($(".title-text").innerHeight() / 2);
             $(".title-text").css("top", (titleHeight + "px"));
 
@@ -108,75 +175,6 @@
             $(".left-content-container").css("padding-left", (contentTileMargin + "px"));
             $(".right-content-container").css("padding-right", (contentTileMargin + "px"));
             $(".content-container").css("padding-bottom", (contentTileMargin + "px"));
-
-            // Hash Demo
-            $("#hash-input").keyup(hash);
-            $("#crypto-alg").change(hash);
-
-            function hash() {
-                input = $("#hash-input").val();
-                console.log("There is input: " + input);
-                if (input != "") {
-                    let cryptoAlg = $("#crypto-alg").val();
-                    if (cryptoAlg == "SHA-256") {
-                        sha256(input).then((cipherText) => {
-                            $("#hash-output").val(cipherText);
-                            console.log(cipherText);
-                        });
-                    } else if (cryptoAlg == "SHA-512") {
-                        sha512(input).then((cipherText) => {
-                            $("#hash-output").val(cipherText);
-                            console.log(cipherText);
-                        });
-                    } else if (cryptoAlg == "SHA-1") {
-                        sha1(input).then((cipherText) => {
-                            $("#hash-output").val(cipherText);
-                            console.log(cipherText);
-                        });
-                    }
-                } else {
-                    $("#hash-output").val("");
-                }
-            }
-
-            function sha256(string) {
-                const utf8 = new TextEncoder().encode(string);
-                return crypto.subtle.digest('SHA-256', utf8).then((hashBuffer) => {
-                    const hashArray = Array.from(new Uint8Array(hashBuffer));
-                    const hashHex = hashArray.map((bytes) => bytes.toString(16).padStart(2, '0')).join('');
-                    return hashHex;
-                });
-            }
-            function sha512(string) {
-                const utf8 = new TextEncoder().encode(string);
-                return crypto.subtle.digest('SHA-512', utf8).then((hashBuffer) => {
-                    const hashArray = Array.from(new Uint8Array(hashBuffer));
-                    const hashHex = hashArray.map((bytes) => bytes.toString(16).padStart(2, '0')).join('');
-                    return hashHex;
-                });
-            }
-            function sha1(string) {
-                const utf8 = new TextEncoder().encode(string);
-                return crypto.subtle.digest('SHA-1', utf8).then((hashBuffer) => {
-                    const hashArray = Array.from(new Uint8Array(hashBuffer));
-                    const hashHex = hashArray.map((bytes) => bytes.toString(16).padStart(2, '0')).join('');
-                    return hashHex;
-                });
-            }
-
-            $(window).resize(function() {
-                let titleHeight = ($("#title-img").innerHeight() / 2)-($(".title-text").innerHeight() / 2);
-                $(".title-text").css("top", (titleHeight + "px"));
-
-                let contentHeight = ($("#title-img").outerHeight() + "px");
-                $(".content").css("top", contentHeight);
-
-                let contentTileMargin = ($("html").innerWidth() - ($(".content-tile").outerWidth() * 2))/ 3;
-                $(".content-tile").css("margin-top", (contentTileMargin + "px"));
-                $(".left-content-container").css("padding-left", (contentTileMargin + "px"));
-                $(".right-content-container").css("padding-right", (contentTileMargin + "px"));
-                $(".content-container").css("padding-bottom", (contentTileMargin + "px"));
-            });
         });
     </script>
 </body>

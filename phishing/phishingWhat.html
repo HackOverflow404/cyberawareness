@@ -114,7 +114,73 @@
     </script>
 
     <script>
-        $(function () {
+        let titleHeight = ($("#title-img").innerHeight() / 2)-($(".title-text").innerHeight() / 2);
+        $(".title-text").css("top", (titleHeight + "px"));
+
+        let contentHeight = ($("#title-img").outerHeight() + "px");
+        $(".content").css("top", contentHeight);
+
+        let contentTileMargin = ($("html").innerWidth() - ($(".content-tile").outerWidth() * 2))/ 3;
+        $(".content-tile").css("margin-top", (contentTileMargin + "px"));
+        $(".left-content-container").css("padding-left", (contentTileMargin + "px"));
+        $(".right-content-container").css("padding-right", (contentTileMargin + "px"));
+        $(".content-container").css("padding-bottom", (contentTileMargin + "px"));
+
+        // Quiz
+        let questions = ["What is phishing?", "Which of the following is NOT a common type of phishing?", "What is the purpose of two-factor authentication (2FA) in the context of phishing prevention?"];
+        let answerOptions = [["A cyber attack where deceptive methods are used to trick individuals into revealing sensitive information.", "A technique to catch more fish.", "A type of cyber attack involving fishing for information underwater."], ["Email phishing", "Spear phishing", "Slither phishing"], ["It helps attackers gain access to your accounts.", "It adds an extra layer of security by requiring multiple forms of verification.", "It allows you to share your passwords with others."]];
+        let userAnswer = [];
+
+        let questionContainer = $("#quiz-question");
+        let questionNum = 0;
+
+        changeQuestion();
+
+        function changeQuestion() {
+            if (questionNum >= questions.length) {
+                checkAnswers();
+                return 0;
+            }
+            questionContainer.text(questions[questionNum]);
+            $("#quiz-options").html("");
+            for (let j = 0; j < answerOptions[questionNum].length; j++) {
+                $("#quiz-options").append("<input type=\"radio\" name=\"" + questionNum + "\" id=\"q" + questionNum + "a" + j + "\" value=\"" + j + "\"><label class=\"content-para\">" + answerOptions[questionNum][j] + "</label><br>");
+            }
+        }
+
+        function checkAnswers() {
+            console.log("Chosen answers: " + userAnswer);
+            let incorrectAns = "";
+            if (userAnswer[0] != "0") {
+                incorrectAns += "1";
+            }
+            if (userAnswer[1] != "2") {
+                incorrectAns += "2";
+            }
+            if (userAnswer[2] != "1") {
+                incorrectAns += "3";
+            }
+            if (incorrectAns == "") {
+                console.log("You got all answers correct!");
+                $("#status").text("You got all answers correct!");
+            } else {
+                if (incorrectAns.length == 1) {
+                    console.log("Question " + incorrectAns + " was wrong");
+                    $("#status").text("Question " + incorrectAns + " was wrong");
+                } else {
+                    console.log("Questions " + [...incorrectAns].join(", ") + " were wrong");
+                    $("#status").text("Questions " + [...incorrectAns].join(", ") + " were wrong");
+                }
+            }
+        }
+
+        $("#checkAns").click(() => {
+            userAnswer.push($("input[name=" + questionNum + "]:checked").attr("value"));
+            questionNum++;
+            changeQuestion();
+        });
+
+        $(window).resize(function() {
             let titleHeight = ($("#title-img").innerHeight() / 2)-($(".title-text").innerHeight() / 2);
             $(".title-text").css("top", (titleHeight + "px"));
 
@@ -126,74 +192,6 @@
             $(".left-content-container").css("padding-left", (contentTileMargin + "px"));
             $(".right-content-container").css("padding-right", (contentTileMargin + "px"));
             $(".content-container").css("padding-bottom", (contentTileMargin + "px"));
-
-            // Quiz
-            let questions = ["What is phishing?", "Which of the following is NOT a common type of phishing?", "What is the purpose of two-factor authentication (2FA) in the context of phishing prevention?"];
-            let answerOptions = [["A cyber attack where deceptive methods are used to trick individuals into revealing sensitive information.", "A technique to catch more fish.", "A type of cyber attack involving fishing for information underwater."], ["Email phishing", "Spear phishing", "Slither phishing"], ["It helps attackers gain access to your accounts.", "It adds an extra layer of security by requiring multiple forms of verification.", "It allows you to share your passwords with others."]];
-            let userAnswer = [];
-
-            let questionContainer = $("#quiz-question");
-            let questionNum = 0;
-
-            changeQuestion();
-    
-            function changeQuestion() {
-                if (questionNum >= questions.length) {
-                    checkAnswers();
-                    return 0;
-                }
-                questionContainer.text(questions[questionNum]);
-                $("#quiz-options").html("");
-                for (let j = 0; j < answerOptions[questionNum].length; j++) {
-                    $("#quiz-options").append("<input type=\"radio\" name=\"" + questionNum + "\" id=\"q" + questionNum + "a" + j + "\" value=\"" + j + "\"><label class=\"content-para\">" + answerOptions[questionNum][j] + "</label><br>");
-                }
-            }
-
-            function checkAnswers() {
-                console.log("Chosen answers: " + userAnswer);
-                let incorrectAns = "";
-                if (userAnswer[0] != "0") {
-                    incorrectAns += "1";
-                }
-                if (userAnswer[1] != "2") {
-                    incorrectAns += "2";
-                }
-                if (userAnswer[2] != "1") {
-                    incorrectAns += "3";
-                }
-                if (incorrectAns == "") {
-                    console.log("You got all answers correct!");
-                    $("#status").text("You got all answers correct!");
-                } else {
-                    if (incorrectAns.length == 1) {
-                        console.log("Question " + incorrectAns + " was wrong");
-                        $("#status").text("Question " + incorrectAns + " was wrong");
-                    } else {
-                        console.log("Questions " + [...incorrectAns].join(", ") + " were wrong");
-                        $("#status").text("Questions " + [...incorrectAns].join(", ") + " were wrong");
-                    }
-                }
-            }
-
-            $("#checkAns").click(() => {
-                userAnswer.push($("input[name=" + questionNum + "]:checked").attr("value"));
-                questionNum++;
-                changeQuestion();
-            });
-
-            $(window).resize(function() {
-                let titleHeight = ($("#title-img").innerHeight() / 2)-($(".title-text").innerHeight() / 2);
-                $(".title-text").css("top", (titleHeight + "px"));
-
-                let contentHeight = ($("#title-img").outerHeight() + "px");
-                $(".content").css("top", contentHeight);
-
-                let contentTileMargin = ($("html").innerWidth() - ($(".content-tile").outerWidth() * 2))/ 3;
-                $(".content-tile").css("margin-top", (contentTileMargin + "px"));
-                $(".left-content-container").css("padding-left", (contentTileMargin + "px"));
-                $(".right-content-container").css("padding-right", (contentTileMargin + "px"));
-                $(".content-container").css("padding-bottom", (contentTileMargin + "px"));
-            });
         });
     </script>
 </body>
