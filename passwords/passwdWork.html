@@ -40,7 +40,7 @@
                     <div class="hash-demo-box"><p class="content-para">Enter a password:</p><span id="hash-message" class="message-box">Although this data is not saved, do not enter an actual password.</span></div>
                     <input id="hash-input" class="hash-demo" type="text"><br><br>
                     <div style="display: table;"><p style="display: table-cell;" class="content-para">Hashed output in &nbsp</p><select id="crypto-alg" style="display: table-cell;"><option value="SHA-256">SHA-256</option><option value="SHA-512">SHA-512</option><option value="SHA-1">SHA-1</option></select><p style="display: table-cell;" class="content-para">:</p></div>
-                    <input class="hash-demo" id="hash-output" type="text" disabled></p>
+                    <textarea style="resize: none;" class="hash-demo" id="hash-output" disabled></textarea>
                 </td>
             </tr>
         </table>
@@ -85,7 +85,7 @@
             <tr class="right-content-3 right-tile content-tile">
                 <td>
                     <h2 class="content-title">Example of a hash</h2>
-                    <p class="content-para">There are many different hashing algorithms, some of the most popular being SHA-256, MD5, AES, etc.<br><br> E.g. Password123<br></p><span class="hash">008c70392e3abfbd0fa47bbc2ed96aa99bd49e159727fcba0f2e6abeb3a9d601</span><p class="content-para"><br>E.g. password123<br></p><span class="hash">ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f</span><p class="content-para"><br><br>As can be seen above, a single small modification of the password changed the entire output hash. And the same password will always result in the same hash. You can try it out in the "Try it out!" section to the left.</p>
+                    <p class="content-para">There are many different hashing algorithms, some of the most popular being SHA-256, MD5, AES, etc.<br><br> E.g. Password123<br></p><span class="hash">008c70392e3abfbd0fa47bbc2ed96aa99bd49e159727fcba0f2e6abeb3a9d601</span><p class="content-para"><br>E.g. password123<br></p><span class="hash">ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f</span><p class="content-para"><br>As can be seen above, a single small modification of the password changed the entire output hash. And the same password will always result in the same hash. You can try it out in the "Try it out!" section to the left.</p>
                 </td>
             </tr>
         </table>
@@ -109,6 +109,9 @@
         $(".content-container").css("padding-bottom", (contentTileMargin + "px"));
 
         // Hash Demo
+        $("#hash-input").html("");
+        $("#hash-output").html("");
+        $("#hash-output").height("2vw");
         $("#hash-input").keyup(hash);
         $("#crypto-alg").change(hash);
 
@@ -119,22 +122,26 @@
                 let cryptoAlg = $("#crypto-alg").val();
                 if (cryptoAlg == "SHA-256") {
                     sha256(input).then((cipherText) => {
-                        $("#hash-output").val(cipherText);
+                        $("#hash-output").html(cipherText);
+                        $("#hash-output").height("fit-content");
                         console.log(cipherText);
                     });
                 } else if (cryptoAlg == "SHA-512") {
                     sha512(input).then((cipherText) => {
-                        $("#hash-output").val(cipherText);
+                        $("#hash-output").html(cipherText);
+                        $("#hash-output").height("fit-content");
                         console.log(cipherText);
                     });
                 } else if (cryptoAlg == "SHA-1") {
                     sha1(input).then((cipherText) => {
-                        $("#hash-output").val(cipherText);
+                        $("#hash-output").html(cipherText);
+                        $("#hash-output").height("fit-content");
                         console.log(cipherText);
                     });
                 }
             } else {
-                $("#hash-output").val("");
+                $("#hash-output").html("");
+                $("#hash-output").height("2vw");
             }
         }
 

@@ -44,7 +44,19 @@
     </script>
 
     <script>
-        $(function () {
+        let titleHeight = ($("#title-img").innerHeight() / 2)-($(".title-text").innerHeight() / 2);
+        $(".title-text").css("top", (titleHeight + "px"));
+
+        let contentHeight = ($("#title-img").outerHeight() + "px");
+        $(".content").css("top", contentHeight);
+
+        let contentTileMargin = ($("html").innerWidth() - ($(".content-tile").outerWidth() * 2))/ 3;
+        $(".content-tile").css("margin-top", (contentTileMargin + "px"));
+        $(".left-content-container").css("padding-left", (contentTileMargin + "px"));
+        $(".right-content-container").css("padding-right", (contentTileMargin + "px"));
+        $(".content-container").css("padding-bottom", (contentTileMargin + "px"));
+
+        $(window).resize(function() {
             let titleHeight = ($("#title-img").innerHeight() / 2)-($(".title-text").innerHeight() / 2);
             $(".title-text").css("top", (titleHeight + "px"));
 
@@ -56,20 +68,6 @@
             $(".left-content-container").css("padding-left", (contentTileMargin + "px"));
             $(".right-content-container").css("padding-right", (contentTileMargin + "px"));
             $(".content-container").css("padding-bottom", (contentTileMargin + "px"));
-
-            $(window).resize(function() {
-                let titleHeight = ($("#title-img").innerHeight() / 2)-($(".title-text").innerHeight() / 2);
-                $(".title-text").css("top", (titleHeight + "px"));
-
-                let contentHeight = ($("#title-img").outerHeight() + "px");
-                $(".content").css("top", contentHeight);
-
-                let contentTileMargin = ($("html").innerWidth() - ($(".content-tile").outerWidth() * 2))/ 3;
-                $(".content-tile").css("margin-top", (contentTileMargin + "px"));
-                $(".left-content-container").css("padding-left", (contentTileMargin + "px"));
-                $(".right-content-container").css("padding-right", (contentTileMargin + "px"));
-                $(".content-container").css("padding-bottom", (contentTileMargin + "px"));
-            });
         });
     </script>
 </body>

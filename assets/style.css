@@ -151,28 +151,24 @@ td {
 
 .hash-demo {
     width: 30vw;
-    height: 5vw;
-
-    overflow-wrap: break-word;
-
     border-radius: 2vw;
     padding-left: 1vw;
     padding-right: 1vw;
-    
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 0.75vw;
-    color: #000000;
 }
 
 #hash-input {
+    height: 2vw;
     color: #000000;
 }
 
 #hash-output {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5vw;
     color: #FFFFFF;
-    height: 3vw;
+
+    word-wrap: break-word;
 }
 
 .hash-demo-box {
@@ -209,7 +205,7 @@ td {
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
-    font-size: 0.75vw;
+    font-size: 1vw;
     color: #FFFFFF;
 }
 
@@ -349,7 +345,7 @@ td {
     height: 18vw;
 }
 
-select {
+#crypto-alg {
     width: 8vw;
     height: 2vw;
     background-color: #282828;
@@ -362,7 +358,7 @@ select {
     color: #FFFFFF;
 }
 
-input[type=text] {
+#passwd-guess {
     width: 28vw;
     height: 2vw;
     border-radius: 2vw;
@@ -374,4 +370,86 @@ input[type=text] {
     font-weight: 400;
     font-size: 1.5vw;
     color: #000;
+}
+
+#malware-guess {
+    width: 28vw;
+    height: 2vw;
+    border-radius: 2vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5vw;
+    color: #000;
+}
+
+input[type=text] {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5vw;
+}
+
+#example-subject {
+    color: #FFFFFF;
+    text-align: center;
+    padding: 0.75vw;
+}
+
+.email-para {
+    color: #FFFFFF;
+    margin: 0.75vw;
+}
+
+.phishing-example {
+    background-color: #A6A6A6;
+    margin: 0.75vw;
+    padding: 0.75vw;
+    border-radius: 1vw;
+    border: none;
+}
+
+#checkAns {
+    background-color: #A6A6A6;
+    border-radius: 1vw;
+    border: none;
+    width: 10vw;
+    height: 4vw;
+    padding: 1vw;
+
+    cursor: pointer;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.5vw;
+    color: #FFFFFF;
+}
+
+.ans-choice {
+    cursor: pointer;
+}
+
+.ans-radio {
+    display: none;
+}
+
+.ans-label {
+    display: block;
+    border: 0.25vw solid #FFFFFF;
+    padding: 1vw;
+    border-radius: 1vw;
+    transition: background-color 0.5s ease, border-color 0.5s ease;
+}
+
+.ans-radio:checked+.ans-label {
+    background-color: #A6A6A6;
+    border-color: #A6A6A6;
+}
+
+.ans-label:hover {
+    background-color: #A6A6A6;
 }

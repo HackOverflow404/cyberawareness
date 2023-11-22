@@ -81,7 +81,7 @@
         $(".right-content-container").css("padding-right", (contentTileMargin + "px"));
         $(".content-container").css("padding-bottom", (contentTileMargin + "px"));
 
-        answerOptions = [061302, 227243, 654837, 102413];
+        answerOptions = ["061302", "227243", "654837", "102413"];
 
         if (localStorage.tryCount == undefined || localStorage.answer == undefined || localStorage.tryCount == 0) {
             tryCount = 5;
@@ -98,11 +98,6 @@
         $("#passwd-guess").keypress(function (event) {
             if (event.which == 13) {
                 userAnswer = $("#passwd-guess").val();
-                while (newAns == 25282) {
-                    answerOptions.sort(function(a, b){return 0.5 - Math.random()});
-                    newAns = answerOptions[0];
-                    localStorage.answer = newAns + "";
-                }
                 if (userAnswer == localStorage.answer) {
                     tryCount = 5;
                     localStorage.tryCount = tryCount;

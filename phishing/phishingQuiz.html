@@ -1,68 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <title>Document</title>
+    <title>Styled Radio Button Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .quiz-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .question {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="radio"] {
+            display: none;
+            /* Hide the default radio button */
+        }
+
+        input[type="radio"]:checked+label {
+            background-color: #4caf50;
+            /* Change background color when selected */
+            color: white;
+            border-color: #4caf50;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
+
 <body>
-    <h2 class="content-title">Phishing Quiz</h2>
-    <p id="quiz-question" class="content-para"></p>
-    <div id="quiz-options"></div>
-    <button id="checkAns">Check</button>
 
-    <script>
-        // Quiz
-        let questions = ["What is phishing?", "Which of the following is NOT a common type of phishing?", "What is the purpose of two-factor authentication (2FA) in the context of phishing prevention?"];
-        let answerOptions = [["A cyber attack where deceptive methods are used to trick individuals into revealing sensitive information.", "A technique to catch more fish.", "A type of cyber attack involving fishing for information underwater."], ["Email phishing", "Spear phishing", "Slither phishing"], ["It helps attackers gain access to your accounts.", "It adds an extra layer of security by requiring multiple forms of verification.", "It allows you to share your passwords with others."]];
-        let userAnswer = [];
+    <div class="quiz-container">
+        <h2>Styled Radio Button Quiz</h2>
+        <form action="submit_quiz.php" method="post">
 
-        let questionContainer = $("#quiz-question");
-        let questionNum = 0;
+            <div class="question">
+                <p>1. What is the capital of France?</p>
+                <input type="radio" id="paris" name="q1" value="paris">
+                <label for="paris">Paris</label>
 
-        changeQuestion();
-    
-        function changeQuestion() {
-            if (questionNum >= questions.length) {
-                checkAnswers();
-                return 0;
-            }
-            questionContainer.text(questions[questionNum]);
-            $("#quiz-options").html("");
-            for (let j = 0; j < answerOptions[questionNum].length; j++) {
-                $("#quiz-options").append("<input type=\"radio\" name=\"" + questionNum + "\" id=\"q" + questionNum + "a" + j + "\" value=\"" + j + "\"><label>" + answerOptions[questionNum][j] + "</label><br>");
-            }
-        }
+                <input type="radio" id="berlin" name="q1" value="berlin">
+                <label for="berlin">Berlin</label>
 
-        function checkAnswers() {
-            console.log("Chosen answers: " + userAnswer);
-            let incorrectAns = "";
-            if (userAnswer[0] != "0") {
-                incorrectAns += "1";
-            }
-            if (userAnswer[1] != "2") {
-                incorrectAns += "2";
-            }
-            if (userAnswer[2] != "1") {
-                incorrectAns += "3";
-            }
-            if (incorrectAns == "") {
-                console.log("You got all answers correct!");
-            } else {
-                if (incorrectAns.length == 1) {
-                    console.log("Question " + incorrectAns + " was wrong");
-                } else {
-                    console.log("Questions " + [...incorrectAns].join(", ") + " were wrong")
-                }
-            }
-        }
+                <input type="radio" id="london" name="q1" value="london">
+                <label for="london">London</label>
+            </div>
 
-        $("#checkAns").click(() => {
-            userAnswer.push($("input[name=" + questionNum + "]:checked").attr("value"));
-            questionNum++;
-            changeQuestion();
-        });
-    </script>
+            <div class="question">
+                <p>2. Which planet is known as the Red Planet?</p>
+                <input type="radio" id="mars" name="q2" value="mars">
+                <label for="mars">Mars</label>
+
+                <input type="radio" id="venus" name="q2" value="venus">
+                <label for="venus">Venus</label>
+
+                <input type="radio" id="jupiter" name="q2" value="jupiter">
+                <label for="jupiter">Jupiter</label>
+            </div>
+
+            <div class="question">
+                <p>3. What is the largest mammal on Earth?</p>
+                <input type="radio" id="elephant" name="q3" value="elephant">
+                <label for="elephant">Elephant</label>
+
+                <input type="radio" id="blue-whale" name="q3" value="blue-whale">
+                <label for="blue-whale">Blue Whale</label>
+
+                <input type="radio" id="giraffe" name="q3" value="giraffe">
+                <label for="giraffe">Giraffe</label>
+            </div>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
 </body>
+
 </html>
